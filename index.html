@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SELAMAT HARI RAYA IDUL FITRI</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+            padding: 50px;
+            margin: 0;
+        }
+        .container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            margin: auto;
+            display: none;
+        }
+        h1 {
+            color: #4CAF50;
+        }
+        p {
+            font-size: 16px;
+            color: #333;
+        }
+        .button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 32px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: block; 
+            margin: 10px;
+            width: 85%;
+            max-width: 350px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+        .donation-number {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.5s forwards;
+            display: none; 
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
+        .button:active {
+            transform: scale(0.98);
+            transition: transform 0.2s;
+        }
+    </style>
+    <script>
+        function showPage(page) {
+            var pages = document.querySelectorAll('.container');
+            pages.forEach(function(p) {
+                p.style.display = 'none';
+            });
+            var pageToShow = document.getElementById(page);
+            pageToShow.style.display = 'block';
+        }
+
+        window.onload = function() {
+            showPage('page1');
+        }
+
+        function playAudio() {
+            var iframe = document.getElementById('youtubeAudio');
+            iframe.src = "https://www.youtube.com/embed/f8Ru2XBnPOw?autoplay=1&loop=1&playlist=f8Ru2XBnPOw&mute=0";
+        }
+
+        function showDonationNumber() {
+            var donationNumber = document.getElementById('donationNumber');
+            donationNumber.style.display = 'block'; 
+            donationNumber.style.animation = 'fadeInUp 0.5s forwards'; 
+        }
+    </script>
+</head>
+<body>
+
+    <iframe id="youtubeAudio" width="0" height="0" 
+            src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+    </iframe>
+
+    
+    <div class="container" id="page1">
+        <h1>SELAMAT HARI RAYA IDUL FITRI</h1>
+        <p>Semoga hari yang penuh berkah ini membawa kebahagiaan, kedamaian, dan rezeki yang melimpah. Mohon maaf lahir dan batin.</p>
+        
+        <button class="button" onclick="playAudio()">Nyalain Musiknya 🎶</button>
+        <button class="button" onclick="showPage('page2')">Next</button>
+    </div>
+
+    <div class="container" id="page2">
+        <h1>MINAL AIDZIN WALFAIZIN</h1>
+        <p>Mohon maaf lahir dan batin. jika ada salah perkataan maupun perbuatan tolong dimaafkan🙏.</p>
+        <button class="button" onclick="showPage('page3')">Ada sesuatu nih kak</button>
+    </div>
+
+    <div class="container" id="page3">
+        <h1>THR NYA KAK HEHEHE</h1>
+        <p>"Selamat Lebaran, jangan lupa Saling berbagi, tak perlu banyak, sedikit pun takpee🙏"</p>
+        <p>Seikhlasnyaa aja😊</p>
+        
+        <p class="donation-number" id="donationNumber">Nomor Dana Widjiatha: <strong>082340544861</strong></p>
+
+        <img src="./img/shareqr.png" width="400" height="600" alt="">
+    
+        <button class="button" onclick="showDonationNumber()">Beri THR 💸</button>
+    </div>
+
+</body>
+</html>
